@@ -28,8 +28,6 @@ export const VirtualizedMessageList = memo(({
   const containerRef = useRef<HTMLDivElement>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const [visibleRange, setVisibleRange] = useState({ start: 0, end: messages.length })
-  const [containerHeight, setContainerHeight] = useState(0)
-  const [scrollTop, setScrollTop] = useState(0)
 
   // Determine if we should use virtualization
   const shouldVirtualize = messages.length > virtualizationThreshold
@@ -54,7 +52,6 @@ export const VirtualizedMessageList = memo(({
     )
 
     setVisibleRange({ start, end })
-    setScrollTop(scrollTop)
   }, [messages.length, shouldVirtualize])
 
   // Handle scroll events
@@ -70,7 +67,6 @@ export const VirtualizedMessageList = memo(({
     
     // Initial calculation
     calculateVisibleRange()
-    setContainerHeight(container.clientHeight)
 
     return () => {
       container.removeEventListener('scroll', handleScroll)

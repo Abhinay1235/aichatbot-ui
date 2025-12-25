@@ -49,6 +49,7 @@ export const Layout = ({
       <Header
         onMenuClick={handleMenuClick}
         showMenuButton={isMobile}
+        onNewChat={onNewSession}
       />
       <Box sx={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
         <Sidebar

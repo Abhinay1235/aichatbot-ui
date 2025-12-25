@@ -9,7 +9,6 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-  Divider,
   IconButton,
   Typography,
   Menu,
@@ -22,6 +21,7 @@ import {
   Button,
   CircularProgress,
   Chip,
+  Alert,
 } from '@mui/material'
 import { Close as CloseIcon, Add as AddIcon, MoreVert as MoreVertIcon, History as HistoryIcon } from '@mui/icons-material'
 import { useState } from 'react'
@@ -52,6 +52,7 @@ export const Sidebar = ({
   const [selectedSessionForMenu, setSelectedSessionForMenu] = useState<string | null>(null)
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
   const [isDeleting, setIsDeleting] = useState(false)
+  const [deleteError, setDeleteError] = useState<string | null>(null)
 
   const handleMenuOpen = (event: React.MouseEvent<HTMLElement>, sessionId: string) => {
     event.stopPropagation()
@@ -65,28 +66,53 @@ export const Sidebar = ({
   }
 
   const handleDeleteClick = () => {
+    // Don't close menu yet - we need selectedSessionForMenu for the dialog
+    // Just close the menu popup, but keep selectedSessionForMenu
+    setMenuAnchor(null)
     setDeleteDialogOpen(true)
-    handleMenuClose()
+    setDeleteError(null) // Clear any previous errors
   }
 
   const handleDeleteConfirm = async () => {
-    if (selectedSessionForMenu && onDeleteSession) {
-      setIsDeleting(true)
-      try {
-        await onDeleteSession(selectedSessionForMenu)
+    if (!selectedSessionForMenu) {
+      console.error('No session selected for deletion')
+      setDeleteError('No session selected. Please try again.')
+      return
+    }
+    
+    if (!onDeleteSession) {
+      console.error('onDeleteSession callback not provided')
+      setDeleteError('Delete functionality is not available.')
+      return
+    }
+
+    setIsDeleting(true)
+    setDeleteError(null)
+    
+    try {
+      console.log('Attempting to delete session:', selectedSessionForMenu)
+      await onDeleteSession(selectedSessionForMenu)
+      console.log('Session deleted successfully')
+        // Success - close dialog and reset state
         setDeleteDialogOpen(false)
         setSelectedSessionForMenu(null)
-      } catch (error) {
-        console.error('Error deleting session:', error)
-      } finally {
-        setIsDeleting(false)
-      }
+        setDeleteError(null)
+        setMenuAnchor(null) // Ensure menu is closed
+    } catch (error) {
+      console.error('Error deleting session:', error)
+      // Show error to user
+      const errorMessage = error instanceof Error ? error.message : 'Failed to delete session. Please try again.'
+      setDeleteError(errorMessage)
+    } finally {
+      setIsDeleting(false)
     }
   }
 
   const handleDeleteCancel = () => {
     setDeleteDialogOpen(false)
     setSelectedSessionForMenu(null)
+    setDeleteError(null)
+    setMenuAnchor(null) // Ensure menu is closed
   }
 
   const selectedSession = sessions.find((s) => s.session_id === selectedSessionForMenu)
@@ -257,14 +283,20 @@ export const Sidebar = ({
       {/* Delete Confirmation Dialog */}
       <Dialog
         open={deleteDialogOpen}
-        onClose={handleDeleteCancel}
+        onClose={isDeleting ? undefined : handleDeleteCancel}
         aria-labelledby="delete-dialog-title"
         aria-describedby="delete-dialog-description"
+        disableEscapeKeyDown={isDeleting}
       >
         <DialogTitle id="delete-dialog-title">
           Delete Session?
         </DialogTitle>
         <DialogContent>
+          {deleteError && (
+            <Alert severity="error" sx={{ mb: 2 }}>
+              {deleteError}
+            </Alert>
+          )}
           <DialogContentText id="delete-dialog-description">
             {selectedSession ? (
               <>
@@ -288,10 +320,15 @@ export const Sidebar = ({
             Cancel
           </Button>
           <Button
-            onClick={handleDeleteConfirm}
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              handleDeleteConfirm()
+            }}
             color="error"
             variant="contained"
             disabled={isDeleting}
+            type="button"
             sx={{ minHeight: 44 }}
             startIcon={isDeleting ? <CircularProgress size={16} color="inherit" /> : null}
           >

@@ -3,7 +3,6 @@
  */
 
 import { Box } from '@mui/material'
-import { useRef } from 'react'
 import VirtualizedMessageList from './VirtualizedMessageList'
 import ChatInput, { type ChatInputHandle } from './ChatInput'
 import type { ChatMessage } from '@types'

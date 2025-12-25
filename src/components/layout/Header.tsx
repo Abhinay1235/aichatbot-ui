@@ -2,15 +2,16 @@
  * Header component - Mobile-first & Accessible
  */
 
-import { AppBar, Toolbar, Typography, IconButton, Box } from '@mui/material'
-import { Menu as MenuIcon } from '@mui/icons-material'
+import { AppBar, Toolbar, Typography, IconButton, Button, Box } from '@mui/material'
+import { Menu as MenuIcon, Add as AddIcon } from '@mui/icons-material'
 
 interface HeaderProps {
   onMenuClick?: () => void
   showMenuButton?: boolean
+  onNewChat?: () => void
 }
 
-export const Header = ({ onMenuClick, showMenuButton = false }: HeaderProps) => {
+export const Header = ({ onMenuClick, showMenuButton = false, onNewChat }: HeaderProps) => {
   return (
     <AppBar position="sticky" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Toolbar
@@ -45,6 +46,31 @@ export const Header = ({ onMenuClick, showMenuButton = false }: HeaderProps) => 
         >
           AI Chatbot
         </Typography>
+        {onNewChat && (
+          <Button
+            variant="contained"
+            startIcon={<AddIcon />}
+            onClick={onNewChat}
+            sx={{
+              minHeight: { xs: 40, sm: 44 },
+              fontSize: { xs: '0.875rem', sm: '1rem' },
+              px: { xs: 1.5, sm: 2 },
+              textTransform: 'none',
+              backgroundColor: 'background.paper',
+              color: 'primary.main',
+              '&:hover': {
+                backgroundColor: 'action.hover',
+              },
+            }}
+          >
+            <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>
+              New Chat
+            </Box>
+            <Box component="span" sx={{ display: { xs: 'inline', sm: 'none' } }}>
+              New
+            </Box>
+          </Button>
+        )}
       </Toolbar>
     </AppBar>
   )

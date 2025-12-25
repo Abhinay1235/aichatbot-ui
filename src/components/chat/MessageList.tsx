@@ -3,7 +3,7 @@
  */
 
 import { Box, Typography } from '@mui/material'
-import { useEffect, useRef, useMemo, memo, useCallback } from 'react'
+import { useEffect, useRef, useMemo, memo } from 'react'
 import MessageBubble from './MessageBubble'
 import TypingIndicator from './TypingIndicator'
 import type { ChatMessage } from '@types'

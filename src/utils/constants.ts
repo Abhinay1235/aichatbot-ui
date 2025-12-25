@@ -34,5 +34,6 @@ export const CHAT_CONFIG = {
 export const STORAGE_KEYS = {
   THEME: 'chatbot-theme',
   SESSION_ID: 'chatbot-session-id',
+  SESSIONS: 'chatbot-sessions',
 } as const
 

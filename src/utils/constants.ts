@@ -3,7 +3,9 @@
  */
 
 // API Configuration
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+// Production backend: http://44.203.107.110:8000
+// Can be overridden via VITE_API_URL environment variable
+export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://44.203.107.110:8000'
 export const API_ENDPOINTS = {
   CHAT: '/api/chat',
   SESSIONS: '/api/sessions',

@@ -11,8 +11,7 @@ import {
   Card, 
   CardContent, 
   Chip,
-  Stack,
-  Divider
+  Stack
 } from '@mui/material'
 import { 
   Chat as ChatIcon,
@@ -23,7 +22,11 @@ import {
   SmartToy as LLMIcon,
   DataObject as APIIcon,
   Code as CodeIcon,
-  ArrowForward as ArrowIcon
+  ArrowForward as ArrowIcon,
+  School as SchoolIcon,
+  Lightbulb as LightbulbIcon,
+  Explore as ExploreIcon,
+  Psychology as PsychologyIcon
 } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
 
@@ -33,33 +36,33 @@ export const HomePage = () => {
   const features = [
     {
       icon: <AIIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-      title: 'AI-Powered Analysis',
-      description: 'Leverages OpenAI GPT-3.5-turbo to convert natural language queries into SQL, making data analysis accessible to everyone.'
+      title: 'AI Integration',
+      description: 'I learned how to integrate OpenAI GPT-3.5-turbo to convert natural language into SQL queries, experimenting with prompts and managing API responses.'
     },
     {
       icon: <DatabaseIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-      title: 'Real-Time SQL Generation',
-      description: 'Dynamically generates optimized SQL queries from conversational questions, handling complex data relationships.'
+      title: 'SQL Generation',
+      description: 'Built a system that dynamically generates SQL from conversational questions, handling relationships and complex queries automatically.'
     },
     {
       icon: <SecurityIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-      title: 'Secure Query Execution',
-      description: 'Built-in SQL validation and security checks ensure only safe SELECT queries are executed on the database.'
+      title: 'Query Security',
+      description: 'Implemented SQL validation to ensure only safe SELECT queries run - learned about security best practices for database interactions.'
     },
     {
       icon: <LLMIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-      title: 'Context-Aware Conversations',
-      description: 'Maintains conversation context across multiple queries, understanding references like "them", "those", and follow-up questions.'
+      title: 'Context Management',
+      description: 'Explored maintaining conversation context across queries, so follow-up questions like "out of them..." work correctly.'
     },
     {
       icon: <PerformanceIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-      title: 'High Performance',
-      description: 'Virtual scrolling, code splitting, and memoization ensure smooth performance even with large datasets (100K+ records).'
+      title: 'Performance Optimization',
+      description: 'Practiced optimizing for large datasets using virtual scrolling, memoization, and code splitting techniques.'
     },
     {
       icon: <APIIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-      title: 'RESTful API Architecture',
-      description: 'Clean FastAPI backend with session management, conversation history, and scalable microservices architecture.'
+      title: 'Full-Stack Development',
+      description: 'Built a complete FastAPI backend with session management and React frontend, learning to connect both sides effectively.'
     }
   ]
 
@@ -75,11 +78,11 @@ export const HomePage = () => {
   ]
 
   const highlights = [
-    'Cost-optimized architecture using GPT-3.5-turbo (~$0.0015/1K tokens)',
-    'Mobile-first responsive design with accessibility (WCAG 2.1 AA compliant)',
-    'Dynamic context resolution from conversation history',
-    'Virtual scrolling for handling 100K+ data records efficiently',
-    'Production-ready with error handling, loading states, and retry mechanisms'
+    'Learned to integrate OpenAI API with proper prompt engineering and context management',
+    'Built a full-stack app from scratch with FastAPI backend and React TypeScript frontend',
+    'Implemented SQL generation from natural language with security validation',
+    'Explored state management patterns with Zustand and React Query',
+    'Practiced performance optimization with virtual scrolling for large datasets'
   ]
 
   return (
@@ -109,6 +112,13 @@ export const HomePage = () => {
             </Box>
           </Box>
           
+          <Chip
+            icon={<SchoolIcon />}
+            label="Learning Project"
+            color="primary"
+            sx={{ mb: 3, fontSize: '0.95rem', py: 2.5, px: 1 }}
+          />
+          
           <Typography
             variant="h2"
             component="h1"
@@ -119,7 +129,7 @@ export const HomePage = () => {
               color: 'text.primary',
             }}
           >
-            AI-Powered Data Analytics Chatbot
+            AI Powered chatbot to retrieve data with Natural Language
           </Typography>
           
           <Typography
@@ -133,9 +143,9 @@ export const HomePage = () => {
               lineHeight: 1.6,
             }}
           >
-            An intelligent chatbot that transforms natural language questions into SQL queries, 
-            enabling seamless interaction with large datasets. Built with modern web technologies 
-            and AI integration for portfolio demonstration.
+            A pet project I built to explore AI, full-stack development, and natural language processing. 
+            This chatbot converts everyday questions into SQL queries, making data analysis as easy as 
+            having a conversation. Try it out and see what it can do!
           </Typography>
 
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
@@ -193,8 +203,8 @@ export const HomePage = () => {
                 gap: 1,
               }}
             >
-              <CodeIcon sx={{ color: 'primary.main' }} />
-              What is This Project?
+              <PsychologyIcon sx={{ color: 'primary.main' }} />
+              Why I Built This
             </Typography>
             <Typography
               variant="body1"
@@ -205,10 +215,10 @@ export const HomePage = () => {
                 mb: 2,
               }}
             >
-              This is a full-stack AI-powered analytics platform that demonstrates advanced 
-              software engineering skills. The application allows users to interact with a 
-              large Uber trip dataset (100K+ records) using natural language, making complex 
-              data analysis accessible through conversational AI.
+              I wanted to learn how to integrate AI into real applications and build a full-stack project 
+              from scratch. This chatbot was my way of exploring OpenAI's API, understanding how to 
+              convert natural language to SQL, and building a complete web application with both frontend 
+              and backend components.
             </Typography>
             <Typography
               variant="body1"
@@ -216,13 +226,168 @@ export const HomePage = () => {
                 fontSize: '1.125rem',
                 lineHeight: 1.8,
                 color: 'text.secondary',
+                mb: 2,
               }}
             >
-              The system intelligently converts questions like "How many Prime SUV trips were 
-              booked on weekends?" into optimized SQL queries, executes them safely, and 
-              presents results in natural language. It maintains conversation context, 
-              understands follow-up questions, and handles complex data relationships.
+              The project works with an Uber trip dataset (100K+ records) and lets you ask questions 
+              like "How many Prime SUV trips were booked on weekends?" in plain English. The system 
+              converts your question into SQL, runs it safely, and gives you the answer in natural 
+              language. It even remembers context from previous questions!
             </Typography>
+          </CardContent>
+        </Card>
+
+        {/* What You Can Do Section */}
+        <Card
+          elevation={0}
+          sx={{
+            mb: { xs: 4, md: 6 },
+            backgroundColor: 'background.paper',
+            border: '1px solid',
+            borderColor: 'divider',
+          }}
+        >
+          <CardContent sx={{ p: { xs: 3, md: 4 } }}>
+            <Typography
+              variant="h4"
+              component="h2"
+              sx={{
+                fontWeight: 600,
+                mb: 3,
+                display: 'flex',
+                alignItems: 'center',
+                gap: 1,
+              }}
+            >
+              <ExploreIcon sx={{ color: 'primary.main' }} />
+              What You Can Do Here
+            </Typography>
+            <Box component="ul" sx={{ pl: 2, mb: 0 }}>
+              <Typography component="li" sx={{ mb: 2, fontSize: '1.125rem', lineHeight: 1.8 }}>
+                <strong>Ask natural language questions:</strong> Try questions like "How many total trips are there?", 
+                "What's the average booking value for Prime SUV?", or "Show me trips cancelled on weekends"
+              </Typography>
+              <Typography component="li" sx={{ mb: 2, fontSize: '1.125rem', lineHeight: 1.8 }}>
+                <strong>Test context awareness:</strong> Ask a question, then follow up with "out of them, how many were on weekends?" 
+                - the AI understands what "them" refers to from the conversation
+              </Typography>
+              <Typography component="li" sx={{ mb: 2, fontSize: '1.125rem', lineHeight: 1.8 }}>
+                <strong>Explore the dataset:</strong> Ask about vehicle types, locations, booking status, dates, 
+                revenue, ratings, cancellation reasons, and more
+              </Typography>
+              <Typography component="li" sx={{ mb: 2, fontSize: '1.125rem', lineHeight: 1.8 }}>
+                <strong>Try complex queries:</strong> Ask questions that require aggregations, filters, joins, 
+                and date calculations - the AI handles the SQL complexity for you
+              </Typography>
+              <Typography component="li" sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
+                <strong>Manage sessions:</strong> Your conversations are saved. Create new sessions or revisit 
+                old ones from the sidebar to continue where you left off
+              </Typography>
+            </Box>
+          </CardContent>
+        </Card>
+
+        {/* What I Learned Section */}
+        <Card
+          elevation={0}
+          sx={{
+            mb: { xs: 4, md: 6 },
+            backgroundColor: 'background.paper',
+            border: '1px solid',
+            borderColor: 'divider',
+          }}
+        >
+          <CardContent sx={{ p: { xs: 3, md: 4 } }}>
+            <Typography
+              variant="h4"
+              component="h2"
+              sx={{
+                fontWeight: 600,
+                mb: 3,
+                display: 'flex',
+                alignItems: 'center',
+                gap: 1,
+              }}
+            >
+              <LightbulbIcon sx={{ color: 'primary.main' }} />
+              What I Learned Building This
+            </Typography>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={6}>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '1.125rem',
+                    lineHeight: 1.8,
+                    color: 'text.secondary',
+                    mb: 2,
+                  }}
+                >
+                  <strong>AI Integration:</strong> How to work with OpenAI's API, handle prompts effectively, 
+                  and manage conversation context
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '1.125rem',
+                    lineHeight: 1.8,
+                    color: 'text.secondary',
+                    mb: 2,
+                  }}
+                >
+                  <strong>SQL Generation:</strong> Converting natural language to SQL, validating queries 
+                  for security, and handling edge cases
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '1.125rem',
+                    lineHeight: 1.8,
+                    color: 'text.secondary',
+                  }}
+                >
+                  <strong>Full-Stack Development:</strong> Building REST APIs with FastAPI, creating React 
+                  UIs with TypeScript, and connecting frontend to backend
+                </Typography>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '1.125rem',
+                    lineHeight: 1.8,
+                    color: 'text.secondary',
+                    mb: 2,
+                  }}
+                >
+                  <strong>State Management:</strong> Using Zustand and React Query for managing complex 
+                  application state and server synchronization
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '1.125rem',
+                    lineHeight: 1.8,
+                    color: 'text.secondary',
+                    mb: 2,
+                  }}
+                >
+                  <strong>Performance Optimization:</strong> Virtual scrolling for large datasets, code 
+                  splitting, and memoization techniques
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: '1.125rem',
+                    lineHeight: 1.8,
+                    color: 'text.secondary',
+                  }}
+                >
+                  <strong>Production Practices:</strong> Error handling, loading states, retry mechanisms, 
+                  and building user-friendly interfaces
+                </Typography>
+              </Grid>
+            </Grid>
           </CardContent>
         </Card>
 
@@ -236,7 +401,7 @@ export const HomePage = () => {
             textAlign: 'center',
           }}
         >
-          Key Features & Technologies
+          Key Technologies I Used
         </Typography>
         
         <Grid container spacing={3} sx={{ mb: { xs: 4, md: 6 } }}>
@@ -279,50 +444,6 @@ export const HomePage = () => {
           ))}
         </Grid>
 
-        {/* How to Use Section */}
-        <Card
-          elevation={0}
-          sx={{
-            mb: { xs: 4, md: 6 },
-            backgroundColor: 'background.paper',
-            border: '1px solid',
-            borderColor: 'divider',
-          }}
-        >
-          <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-            <Typography
-              variant="h4"
-              component="h2"
-              sx={{
-                fontWeight: 600,
-                mb: 3,
-              }}
-            >
-              How to Use
-            </Typography>
-            <Box component="ol" sx={{ pl: 2, mb: 0 }}>
-              <Typography component="li" sx={{ mb: 2, fontSize: '1.125rem', lineHeight: 1.8 }}>
-                <strong>Start a conversation:</strong> Click "Try It Now" to begin chatting with the AI assistant.
-              </Typography>
-              <Typography component="li" sx={{ mb: 2, fontSize: '1.125rem', lineHeight: 1.8 }}>
-                <strong>Ask questions naturally:</strong> Type questions like "How many total trips are there?" or 
-                "What is the average booking value for Prime SUV?"
-              </Typography>
-              <Typography component="li" sx={{ mb: 2, fontSize: '1.125rem', lineHeight: 1.8 }}>
-                <strong>Follow-up questions:</strong> The AI maintains context, so you can ask follow-ups like 
-                "out of them, how many were booked on weekends?" and it will understand what "them" refers to.
-              </Typography>
-              <Typography component="li" sx={{ mb: 2, fontSize: '1.125rem', lineHeight: 1.8 }}>
-                <strong>Session management:</strong> Your conversations are saved in sessions. Access previous 
-                sessions from the sidebar to continue where you left off.
-              </Typography>
-              <Typography component="li" sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
-                <strong>Explore the data:</strong> Ask about vehicle types, locations, booking status, dates, 
-                revenue, ratings, and more. The AI handles complex queries automatically.
-              </Typography>
-            </Box>
-          </CardContent>
-        </Card>
 
         {/* Technical Highlights */}
         <Grid container spacing={3} sx={{ mb: { xs: 4, md: 6 } }}>
@@ -382,7 +503,7 @@ export const HomePage = () => {
                     mb: 3,
                   }}
                 >
-                  Project Highlights
+                  What Makes This Interesting
                 </Typography>
                 <Box component="ul" sx={{ pl: 2, mb: 0 }}>
                   {highlights.map((highlight, index) => (
@@ -404,61 +525,6 @@ export const HomePage = () => {
             </Card>
           </Grid>
         </Grid>
-
-        {/* CTA Section */}
-        <Box
-          sx={{
-            textAlign: 'center',
-            py: { xs: 4, md: 6 },
-            px: { xs: 2, sm: 0 },
-            backgroundColor: 'primary.main',
-            color: 'primary.contrastText',
-            borderRadius: 2,
-            mb: 4,
-          }}
-        >
-          <Typography
-            variant="h4"
-            component="h2"
-            sx={{
-              fontWeight: 600,
-              mb: 2,
-              fontSize: { xs: '1.75rem', md: '2.25rem' },
-            }}
-          >
-            Ready to Explore?
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              mb: 4,
-              opacity: 0.9,
-              fontSize: { xs: '1rem', md: '1.25rem' },
-            }}
-          >
-            Start asking questions and see how AI makes data analysis conversational
-          </Typography>
-          <Button
-            variant="contained"
-            size="large"
-            onClick={() => navigate('/chat')}
-            endIcon={<ArrowIcon />}
-            sx={{
-              minHeight: 56,
-              minWidth: 200,
-              fontSize: '1.125rem',
-              px: 4,
-              py: 1.5,
-              backgroundColor: 'background.paper',
-              color: 'primary.main',
-              '&:hover': {
-                backgroundColor: 'background.default',
-              },
-            }}
-          >
-            Get Started
-          </Button>
-        </Box>
       </Container>
     </Box>
   )

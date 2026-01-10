@@ -1,15 +1,15 @@
 # AI Chatbot UI
 
-Frontend user interface for the AI Chatbot Service that analyzes Uber trip data.
+Frontend user interface for the AI Chatbot Service that analyzes Car Rides data collected for dates from July 01, 2024  -  July 31, 2024.
 
 ## Overview
 
-This is the client-side application that provides a user-friendly interface for interacting with the AI Chatbot Service backend. Users can ask natural language questions about Uber trip data and receive intelligent, data-driven responses.
+This is the client-side application that provides a user-friendly interface for interacting with the AI Chatbot Service backend. Users can ask natural language questions about car ride trips data and receive intelligent, data-driven responses.
 
 ## Features
 
 - 💬 **Interactive Chat Interface** - Natural conversation with the AI chatbot
-- 📊 **Data Analysis** - Ask questions about Uber trip data in plain English
+- 📊 **Data Analysis** - Ask questions about car rides data in plain English
 - 💾 **Session Management** - Maintains conversation context across messages
 - 🎨 **Modern UI** - Clean, responsive design
 - ⚡ **Real-time Responses** - Fast query processing and response generation

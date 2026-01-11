@@ -61,7 +61,7 @@ export default defineConfig({
 Create a `.env.production` file for production builds:
 
 ```env
-VITE_API_BASE_URL=https://api.yourdomain.com
+VITE_API_BASE_URL=https://ai-chatbot-service.abhinaykumar.com
 ```
 
 ### Environment-Specific Files

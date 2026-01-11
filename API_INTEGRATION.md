@@ -40,7 +40,7 @@ VITE_API_BASE_URL=http://localhost:8000
 
 For production:
 ```env
-VITE_API_BASE_URL=https://api.yourdomain.com
+VITE_API_BASE_URL=https://ai-chatbot-service.abhinaykumar.com
 ```
 
 ### Interceptors
@@ -392,7 +392,7 @@ VITE_API_BASE_URL=http://localhost:8000
 ### Production
 
 ```env
-VITE_API_BASE_URL=https://api.yourdomain.com
+VITE_API_BASE_URL=https://ai-chatbot-service.abhinaykumar.com
 ```
 
 ### Testing
@@ -400,7 +400,7 @@ VITE_API_BASE_URL=https://api.yourdomain.com
 You can override the API URL at runtime by setting the environment variable before building:
 
 ```bash
-VITE_API_BASE_URL=https://staging-api.yourdomain.com npm run build
+VITE_API_BASE_URL=https://ai-chatbot-service.abhinaykumar.com npm run build
 ```
 
 ## CORS Configuration
@@ -413,7 +413,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "https://yourdomain.com"],
+    allow_origins=["http://localhost:5173", "https://abhinaykumar.com", "https://www.abhinaykumar.com"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

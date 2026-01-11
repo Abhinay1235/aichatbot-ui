@@ -8,7 +8,7 @@ This guide covers deploying the AI Chatbot UI to AWS Amplify and connecting it t
 
 - AWS Account
 - GitHub repository with the UI code
-- Backend deployed and running at: `http://44.203.107.110:8000`
+- Backend deployed and running at: `https://ai-chatbot-service.abhinaykumar.com`
 
 ## Step-by-Step Deployment
 
@@ -45,7 +45,7 @@ This guide covers deploying the AI Chatbot UI to AWS Amplify and connecting it t
    - Add the following variable:
      ```
      Key: VITE_API_URL
-     Value: http://44.203.107.110:8000
+     Value: https://ai-chatbot-service.abhinaykumar.com
      ```
    - Click "Save"
 
@@ -98,10 +98,10 @@ After deployment, you'll receive your Amplify URL. Update the backend CORS:
 2. **Test API Connection:**
    - Try sending a message in the chat
    - Check browser console for any CORS errors
-   - Verify the API calls are going to: `http://44.203.107.110:8000`
+   - Verify the API calls are going to: `https://ai-chatbot-service.abhinaykumar.com`
 
 3. **Verify Backend Health:**
-   - Visit: `http://44.203.107.110:8000/health`
+   - Visit: `https://ai-chatbot-service.abhinaykumar.com/health`
    - Should return: `{"status": "healthy"}`
 
 ## Environment Variables
@@ -110,7 +110,7 @@ After deployment, you'll receive your Amplify URL. Update the backend CORS:
 
 | Variable | Value | Description |
 |----------|-------|-------------|
-| `VITE_API_URL` | `http://44.203.107.110:8000` | Backend API endpoint |
+| `VITE_API_URL` | `https://ai-chatbot-service.abhinaykumar.com` | Backend API endpoint |
 
 ### Optional
 
@@ -150,17 +150,16 @@ AWS Amplify automatically deploys when you push to the connected branch:
 
 ### API Connection Issues
 
-- **Verify backend IP** is correct: `44.203.107.110:8000`
-- **Check backend health:** `http://44.203.107.110:8000/health`
+- **Verify backend URL** is correct: `https://ai-chatbot-service.abhinaykumar.com`
+- **Check backend health:** `https://ai-chatbot-service.abhinaykumar.com/health`
 - **Verify environment variable** `VITE_API_URL` is set correctly
 
 ### Mixed Content Warnings
 
-- **Issue:** HTTPS (Amplify) calling HTTP (backend IP)
+- **Issue:** HTTPS (Amplify) calling HTTP (backend)
 - **Solution:** 
-  - Use a domain with SSL for backend (recommended)
-  - Or use Application Load Balancer with SSL certificate
-  - For portfolio/testing, browsers may allow it but show warnings
+  - Backend is now using HTTPS at `https://ai-chatbot-service.abhinaykumar.com`
+  - No mixed content warnings when using the HTTPS endpoint
 
 ## Cost
 
@@ -180,8 +179,8 @@ AWS Amplify Hosting:
 
 ## Quick Reference
 
-- **Backend API:** `http://44.203.107.110:8000`
-- **Backend Health:** `http://44.203.107.110:8000/health`
-- **Backend Docs:** `http://44.203.107.110:8000/docs`
+- **Backend API:** `https://ai-chatbot-service.abhinaykumar.com`
+- **Backend Health:** `https://ai-chatbot-service.abhinaykumar.com/health`
+- **Backend Docs:** `https://ai-chatbot-service.abhinaykumar.com/docs`
 - **Amplify Console:** https://console.aws.amazon.com/amplify
 

@@ -11,7 +11,8 @@ import {
   Card, 
   CardContent, 
   Chip,
-  Stack
+  Stack,
+  Link
 } from '@mui/material'
 import { 
   Chat as ChatIcon,
@@ -26,7 +27,8 @@ import {
   School as SchoolIcon,
   Lightbulb as LightbulbIcon,
   Explore as ExploreIcon,
-  Psychology as PsychologyIcon
+  Psychology as PsychologyIcon,
+  LinkedIn as LinkedInIcon
 } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
 
@@ -179,6 +181,41 @@ export const HomePage = () => {
               View Demo
             </Button>
           </Stack>
+        </Box>
+
+        {/* Credits Section */}
+        <Box
+          sx={{
+            textAlign: 'center',
+            py: 3,
+            mb: { xs: 4, md: 6 },
+          }}
+        >
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ mb: 2, fontWeight: 600 }}
+          >
+            Abhinay Kumar Rao Balasankula
+          </Typography>
+          <Link
+            href="https://www.linkedin.com/in/abhinaykumarrao"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 0.5,
+              textDecoration: 'none',
+              color: 'primary.main',
+              '&:hover': {
+                textDecoration: 'underline',
+              },
+            }}
+          >
+            <LinkedInIcon />
+            LinkedIn
+          </Link>
         </Box>
 
         {/* What is This Section */}

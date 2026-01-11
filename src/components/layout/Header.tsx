@@ -4,6 +4,7 @@
 
 import { AppBar, Toolbar, Typography, IconButton, Button, Box } from '@mui/material'
 import { Menu as MenuIcon, Add as AddIcon } from '@mui/icons-material'
+import { useNavigate } from 'react-router-dom'
 
 interface HeaderProps {
   onMenuClick?: () => void
@@ -12,6 +13,12 @@ interface HeaderProps {
 }
 
 export const Header = ({ onMenuClick, showMenuButton = false, onNewChat }: HeaderProps) => {
+  const navigate = useNavigate()
+
+  const handleLogoClick = () => {
+    navigate('/')
+  }
+
   return (
     <AppBar position="sticky" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Toolbar
@@ -38,10 +45,15 @@ export const Header = ({ onMenuClick, showMenuButton = false, onNewChat }: Heade
         <Typography
           variant="h6"
           component="h1"
+          onClick={handleLogoClick}
           sx={{
             flexGrow: 1,
             fontSize: { xs: '1.125rem', sm: '1.25rem' }, // Mobile-first font size
             fontWeight: 600,
+            cursor: 'pointer',
+            '&:hover': {
+              opacity: 0.8,
+            },
           }}
         >
           AI Chatbot

@@ -27,6 +27,7 @@ import { Close as CloseIcon, Add as AddIcon, MoreVert as MoreVertIcon, History a
 import { useState } from 'react'
 import { useSessionStore } from '@store'
 import { format } from 'date-fns'
+import { parseTimestamp } from '@utils/dateUtils'
 
 interface SidebarProps {
   open: boolean
@@ -214,14 +215,14 @@ export const Sidebar = ({
                       },
                     },
                   }}
-                  aria-label={`Session from ${format(new Date(session.created_at), 'MMM d, yyyy')}`}
+                  aria-label={`Session from ${format(parseTimestamp(session.created_at), 'MMM d, yyyy')}`}
                 >
                   <ListItemText
                     primary={
                       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.5 }}>
                         <Typography variant="body1" component="span" sx={{ fontWeight: 500 }}>
                           {session.created_at
-                            ? format(new Date(session.created_at), 'MMM d, yyyy')
+                            ? format(parseTimestamp(session.created_at), 'MMM d, yyyy')
                             : 'New Session'}
                         </Typography>
                         {session.session_id === currentSessionId && (
@@ -242,7 +243,7 @@ export const Sidebar = ({
                         </Typography>
                         {session.created_at && (
                           <Typography variant="caption" component="span" sx={{ opacity: 0.7 }}>
-                            • {format(new Date(session.created_at), 'h:mm a')}
+                            • {format(parseTimestamp(session.created_at), 'h:mm a')}
                           </Typography>
                         )}
                       </Box>
@@ -301,7 +302,7 @@ export const Sidebar = ({
             {selectedSession ? (
               <>
                 Are you sure you want to delete the session from{' '}
-                <strong>{format(new Date(selectedSession.created_at), 'MMM d, yyyy h:mm a')}</strong>?
+                <strong>{format(parseTimestamp(selectedSession.created_at), 'MMM d, yyyy h:mm a')}</strong>?
                 <br />
                 <br />
                 This will permanently delete {selectedSession.message_count} message{selectedSession.message_count !== 1 ? 's' : ''} and cannot be undone.

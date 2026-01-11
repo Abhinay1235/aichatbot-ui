@@ -6,6 +6,7 @@ import { Box, Paper, Typography, IconButton, Collapse, Chip } from '@mui/materia
 import { ExpandMore as ExpandMoreIcon, ExpandLess as ExpandLessIcon } from '@mui/icons-material'
 import { useState, memo } from 'react'
 import { format } from 'date-fns'
+import { parseTimestamp } from '@utils/dateUtils'
 import type { ChatMessage } from '@types'
 
 interface MessageBubbleProps {
@@ -79,7 +80,7 @@ export const MessageBubble = memo(({ message }: MessageBubbleProps) => {
               fontWeight: 500,
             }}
           >
-            {format(new Date(message.timestamp), 'h:mm a')}
+            {format(parseTimestamp(message.timestamp), 'h:mm a')}
           </Typography>
         )}
 

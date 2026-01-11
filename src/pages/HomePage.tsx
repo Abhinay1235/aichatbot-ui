@@ -229,8 +229,8 @@ export const HomePage = () => {
                 mb: 2,
               }}
             >
-              The project works with an Uber trip dataset (100K+ records) and lets you ask questions 
-              like "How many Prime SUV trips were booked on weekends?" in plain English. The system 
+              The project works with an Uber trip dataset (100K+ records) covering trips from July 1, 2024 to July 31, 2024. 
+              You can ask questions like "How many Prime SUV trips were booked on weekends?" in plain English. The system 
               converts your question into SQL, runs it safely, and gives you the answer in natural 
               language. It even remembers context from previous questions!
             </Typography>
@@ -272,8 +272,8 @@ export const HomePage = () => {
                 - the AI understands what "them" refers to from the conversation
               </Typography>
               <Typography component="li" sx={{ mb: 2, fontSize: '1.125rem', lineHeight: 1.8 }}>
-                <strong>Explore the dataset:</strong> Ask about vehicle types, locations, booking status, dates, 
-                revenue, ratings, cancellation reasons, and more
+                <strong>Explore the dataset:</strong> Ask about vehicle types, locations, booking status, dates 
+                (data available for July 1, 2024 to July 31, 2024), revenue, ratings, cancellation reasons, and more
               </Typography>
               <Typography component="li" sx={{ mb: 2, fontSize: '1.125rem', lineHeight: 1.8 }}>
                 <strong>Try complex queries:</strong> Ask questions that require aggregations, filters, joins, 

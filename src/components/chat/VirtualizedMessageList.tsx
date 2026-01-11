@@ -4,11 +4,16 @@
  * Uses intersection observer for efficient rendering
  */
 
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, Chip, Stack } from '@mui/material'
 import { useEffect, useRef, useMemo, memo, useState, useCallback } from 'react'
 import MessageBubble from './MessageBubble'
 import TypingIndicator from './TypingIndicator'
 import type { ChatMessage } from '@types'
+import { 
+  Info as InfoIcon,
+  QuestionAnswer as QuestionIcon,
+  Analytics as AnalyticsIcon
+} from '@mui/icons-material'
 
 interface VirtualizedMessageListProps {
   messages: ChatMessage[]
@@ -156,37 +161,142 @@ export const VirtualizedMessageList = memo(({
             textAlign: 'center',
           }}
         >
-          <Box sx={{ maxWidth: 500 }}>
+          <Box sx={{ maxWidth: 600 }}>
+            <Box
+              sx={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                p: 2,
+                borderRadius: '50%',
+                backgroundColor: 'primary.light',
+                color: 'primary.contrastText',
+                mb: 3,
+              }}
+            >
+              <InfoIcon sx={{ fontSize: { xs: 32, sm: 40 } }} />
+            </Box>
+            
             <Typography 
-              variant="h6" 
+              variant="h5" 
               sx={{ 
                 color: 'text.primary',
-                fontWeight: 600,
+                fontWeight: 700,
                 mb: 2,
-                fontSize: { xs: '1.25rem', sm: '1.5rem' }
+                fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' }
               }}
             >
               Welcome to AI Chatbot
             </Typography>
+            
             <Typography 
               variant="body1" 
               sx={{ 
-                color: 'text.secondary',
-                mb: 1,
-                lineHeight: 1.6
+                color: 'text.primary',
+                mb: 3,
+                lineHeight: 1.8,
+                fontSize: { xs: '0.95rem', sm: '1rem' }
               }}
             >
-              Start a conversation by asking a question about the Uber trip data.
+              This AI-powered chatbot helps you explore and analyze <strong>Car Rides data</strong> from{' '}
+              <strong>July 01, 2024 to July 31, 2024</strong> using natural language.
             </Typography>
+
+            <Box
+              sx={{
+                backgroundColor: 'background.paper',
+                borderRadius: 2,
+                p: 3,
+                mb: 3,
+                border: '1px solid',
+                borderColor: 'divider',
+                textAlign: 'left',
+              }}
+            >
+              <Stack direction="row" spacing={1} sx={{ mb: 2, flexWrap: 'wrap', justifyContent: 'center', gap: 1 }}>
+                <Chip 
+                  icon={<AnalyticsIcon sx={{ fontSize: 18 }} />}
+                  label="Data Analysis" 
+                  size="small"
+                  color="primary"
+                  variant="outlined"
+                />
+                <Chip 
+                  icon={<QuestionIcon sx={{ fontSize: 18 }} />}
+                  label="Natural Language" 
+                  size="small"
+                  color="primary"
+                  variant="outlined"
+                />
+              </Stack>
+              
+              <Typography 
+                variant="body2" 
+                sx={{ 
+                  color: 'text.secondary',
+                  mb: 2,
+                  lineHeight: 1.7
+                }}
+              >
+                <strong>What you can do:</strong>
+              </Typography>
+              <Box component="ul" sx={{ m: 0, pl: 2.5, color: 'text.secondary' }}>
+                <li>Ask questions about ride bookings, cancellations, and patterns</li>
+                <li>Query specific metrics like total trips, average fare, or ride durations</li>
+                <li>Explore data by date, location, or ride type</li>
+                <li>Get insights through conversational follow-up questions</li>
+              </Box>
+            </Box>
+
             <Typography 
               variant="body2" 
               sx={{ 
                 color: 'text.secondary',
-                opacity: 0.8,
+                mb: 1,
+                fontWeight: 600
+              }}
+            >
+              Try asking:
+            </Typography>
+            <Stack spacing={1} sx={{ mb: 2 }}>
+              <Chip 
+                label='"How many total trips are there?"'
+                size="small"
+                sx={{ 
+                  fontStyle: 'italic',
+                  backgroundColor: 'action.hover',
+                  color: 'text.primary'
+                }}
+              />
+              <Chip 
+                label='"What is the average fare amount?"'
+                size="small"
+                sx={{ 
+                  fontStyle: 'italic',
+                  backgroundColor: 'action.hover',
+                  color: 'text.primary'
+                }}
+              />
+              <Chip 
+                label='"Show me trips from July 15th"'
+                size="small"
+                sx={{ 
+                  fontStyle: 'italic',
+                  backgroundColor: 'action.hover',
+                  color: 'text.primary'
+                }}
+              />
+            </Stack>
+
+            <Typography 
+              variant="caption" 
+              sx={{ 
+                color: 'text.secondary',
+                opacity: 0.7,
                 fontStyle: 'italic'
               }}
             >
-              Try: "How many total trips are there?"
+              Start typing your question below to begin exploring the data!
             </Typography>
           </Box>
         </Box>
